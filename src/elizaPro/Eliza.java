@@ -28,7 +28,7 @@ public class Eliza {
 
 	public String respond(String s) {
 		String[] words = s.split(" ");
-		String response = null;
+		String [] response;
 		
 		
 		for (int i = 0; i < words.length; i++) {
@@ -44,11 +44,11 @@ public class Eliza {
 				words[i] = words[i];
 			}
 		}
-		response+=qualifierSet.;
+		response=(String[]) qualifierSet.toArray();
 		for (int i = 0; i < words.length; i++){
 			
 		}
 
-		return response;
+		return response[rand.nextInt(response.length)];
 	}
 }
