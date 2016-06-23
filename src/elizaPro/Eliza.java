@@ -2,15 +2,16 @@ package elizaPro;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.Random;
 
 public class Eliza {
-	public Set<String> hedgeSet = new HashSet<String>();
-	public Set<String> qualifierSet = new HashSet<String>();
-	public Map<String, String> replacementMap = new HashMap<String, String>();
-	public Random rand = new Random();
+	public static Set<String> hedgeSet = new HashSet<String>();
+	public static Set<String> qualifierSet = new HashSet<String>();
+	public static Map<String, String> replacementMap = new HashMap<String, String>();
+	public static Random rand = new Random();
 
 	// String
 	public Eliza() {
@@ -28,27 +29,43 @@ public class Eliza {
 
 	public String respond(String s) {
 		String[] words = s.split(" ");
-		String [] response;
+		String response = "";
 		
 		
 		for (int i = 0; i < words.length; i++) {
 			if (words[i].equals("i")) {
 				words[i] = replacementMap.get("i");
 			} else if (words[i].equals("me")) {
-				words[i] = replacementMap.get("i");
+				words[i] = replacementMap.get("me");
 			} else if (words[i].equals("my")) {
-				words[i] = replacementMap.get("i");
+				words[i] = replacementMap.get("my");
 			} else if (words[i].equals("am")) {
-				words[i] = replacementMap.get("i");
+				words[i] = replacementMap.get("am");
 			} else {
 				words[i] = words[i];
 			}
 		}
-		response=(String[]) qualifierSet.toArray();
+		//response=(String[]) qualifierSet.toArray();
 		for (int i = 0; i < words.length; i++){
-			
+			response+= words[i]+" ";
 		}
 
-		return response[rand.nextInt(response.length)];
+		return response;
 	}
+	public static Object getHedge(){
+	int index = rand.nextInt(hedgeSet.size());
+	Iterator<String> iter = hedgeSet.iterator();
+	for (int i = 0; i < index; i++) {
+	    iter.next();
+	}
+	return iter.next();
+	}
+	public static Object getQualifier(){
+		int index = rand.nextInt(qualifierSet.size());
+		Iterator<String> iter = qualifierSet.iterator();
+		for (int i = 0; i < index; i++) {
+		    iter.next();
+		}
+		return iter.next();
+		}
 }
