@@ -11,6 +11,7 @@ public class Eliza {
 	public static Set<String> hedgeSet = new HashSet<String>();
 	public static Set<String> qualifierSet = new HashSet<String>();
 	public static Map<String, String> replacementMap = new HashMap<String, String>();
+	public static Set<String> randomQuestionSet=new HashSet<String>();
 	public static Random rand = new Random();
 
 	// String
@@ -25,6 +26,9 @@ public class Eliza {
 		replacementMap.put("me", "you");
 		replacementMap.put("my", "your");
 		replacementMap.put("am", "are");
+		randomQuestionSet.add("How are you?");
+		randomQuestionSet.add("Do you like animals");
+		randomQuestionSet.add("Hi");
 	}
 
 	public String respond(String s) {
@@ -63,6 +67,14 @@ public class Eliza {
 	public static Object getQualifier(){
 		int index = rand.nextInt(qualifierSet.size());
 		Iterator<String> iter = qualifierSet.iterator();
+		for (int i = 0; i < index; i++) {
+		    iter.next();
+		}
+		return iter.next();
+		}
+	public static Object getRandomQuestion(){
+		int index = rand.nextInt(randomQuestionSet.size());
+		Iterator<String> iter = randomQuestionSet.iterator();
 		for (int i = 0; i < index; i++) {
 		    iter.next();
 		}
