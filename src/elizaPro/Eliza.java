@@ -26,6 +26,7 @@ public class Eliza {
 		replacementMap.put("me", "you");
 		replacementMap.put("my", "your");
 		replacementMap.put("am", "are");
+		replacementMap.put("i'm","you're" );
 		randomQuestionSet.add("How are you?");
 		randomQuestionSet.add("Do you like animals");
 		randomQuestionSet.add("Hi");

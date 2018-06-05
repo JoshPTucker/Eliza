@@ -7,15 +7,15 @@ public class runEliza {
 		boolean cont=true;
 		String answer=" ";
 		Scanner in=new Scanner(System.in);
-		Thread question = new Thread(new QuestionInterrupt());
+		//Thread question = new Thread(new QuestionInterrupt());
 		Eliza e =new Eliza();
 		System.out.println("Welcome to Eliza, your virtual therapist.");
 		System.out.println("Type to begin talking with Eliza. Type q to quit");
-		question.start();
+		//question.start();
 		while(cont){
 			answer=in.nextLine().toLowerCase();
 			if(answer.equals("hello eliza")||answer.equals("hello")||answer.equals("hi")){
-			System.out.println("Hello");
+			System.out.println("Hello, How are you?");
 			}else if(answer.equals("q")) {
 				cont=false;
 				break;
@@ -25,7 +25,7 @@ public class runEliza {
 			}
 		
 		}
-		question.interrupt();
+		//question.interrupt();
 		in.close();
 	}
 
